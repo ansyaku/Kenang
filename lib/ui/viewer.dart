@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../theme.dart';
 import 'common.dart';
-import 'thumb.dart';
+import 'PhotoThumb.dart';
 
 class ViewerView extends StatefulWidget {
   const ViewerView({super.key, required this.app});
@@ -58,10 +58,10 @@ class _ViewerViewState extends State<ViewerView> {
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
             child: Stack(children: [
               Positioned.fill(
-                child: Thumb(key: ValueKey('t-${item.path}'), app: app, path: item.path, fit: BoxFit.contain),
+                child: PhotoThumb(key: ValueKey('t-${item.path}'), app: app, path: item.path, fit: BoxFit.contain),
               ),
               Positioned.fill(
-                child: Thumb(
+                child: PhotoThumb(
                   key: ValueKey('l-${item.path}'),
                   app: app,
                   path: item.path,
@@ -151,7 +151,7 @@ class _ViewerViewState extends State<ViewerView> {
                       borderRadius: BorderRadius.circular(6),
                       child: Opacity(
                         opacity: active ? 1 : 0.7,
-                        child: Thumb(key: ValueKey(it.path), app: app, path: it.path),
+                        child: PhotoThumb(key: ValueKey(it.path), app: app, path: it.path),
                       ),
                     ),
                   ),

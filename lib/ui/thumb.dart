@@ -6,8 +6,8 @@ import '../app_state.dart';
 import '../theme.dart';
 
 /// Gambar foto dari cache thumbnail (atau pratinjau besar).
-class Thumb extends StatefulWidget {
-  const Thumb({
+class PhotoThumb extends StatefulWidget {
+  const PhotoThumb({
     super.key,
     required this.app,
     required this.path,
@@ -23,10 +23,10 @@ class Thumb extends StatefulWidget {
   final bool showPlaceholder;
 
   @override
-  State<Thumb> createState() => _ThumbState();
+  State<PhotoThumb> createState() => _ThumbState();
 }
 
-class _ThumbState extends State<Thumb> {
+class _ThumbState extends State<PhotoThumb> {
   late Future<File?> _file;
 
   @override
@@ -36,13 +36,13 @@ class _ThumbState extends State<Thumb> {
   }
 
   @override
-  void didUpdateWidget(Thumb old) {
+  void didUpdateWidget(PhotoThumb old) {
     super.didUpdateWidget(old);
     if (old.path != widget.path || old.large != widget.large) _file = _load();
   }
 
   Future<File?> _load() =>
-      widget.large ? widget.app.thumbs.preview(widget.path) : widget.app.thumbs.thumb(widget.path);
+      widget.large ? widget.app.thumbs.preview(widget.path) : widget.app.thumbs.PhotoThumb(widget.path);
 
   @override
   Widget build(BuildContext context) {

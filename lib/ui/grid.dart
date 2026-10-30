@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import '../app_state.dart';
 import '../models.dart';
 import '../theme.dart';
-import 'thumb.dart';
+import 'PhotoThumb.dart';
 
 class PhotoGrid extends StatelessWidget {
   const PhotoGrid({super.key, required this.app});
@@ -115,7 +115,7 @@ class PhotoTile extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Stack(fit: StackFit.expand, children: [
-                Thumb(app: app, path: item.path),
+                PhotoThumb(app: app, path: item.path),
                 if (m.title.isNotEmpty)
                   Positioned(
                     left: 0,
