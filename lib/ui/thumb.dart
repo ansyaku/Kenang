@@ -42,7 +42,7 @@ class _ThumbState extends State<PhotoThumb> {
   }
 
   Future<File?> _load() =>
-      widget.large ? widget.app.thumbs.preview(widget.path) : widget.app.thumbs.PhotoThumb(widget.path);
+      widget.large ? widget.app.thumbs.preview(widget.path) : widget.app.thumbs.thumb(widget.path);
 
   @override
   Widget build(BuildContext context) {

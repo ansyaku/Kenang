@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import '../app_state.dart';
 import '../models.dart';
 import '../theme.dart';
-import 'PhotoThumb.dart';
+import 'thumb.dart';
 
 class PhotoGrid extends StatelessWidget {
   const PhotoGrid({super.key, required this.app});

@@ -21,7 +21,7 @@ class ThumbService {
 
   static bool isNative(String path) => _native.contains(p.extension(path).toLowerCase());
 
-  Future<File?> PhotoThumb(String path) => _get(path, 400);
+  Future<File?> thumb(String path) => _get(path, 400);
 
   /// Gambar besar untuk penampil. Format yang dibaca Flutter langsung pakai file asli.
   Future<File?> preview(String path) =>

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../theme.dart';
 import 'common.dart';
-import 'PhotoThumb.dart';
+import 'thumb.dart';
 
 class ViewerView extends StatefulWidget {
   const ViewerView({super.key, required this.app});
