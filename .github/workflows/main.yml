@@ -1,0 +1,39 @@
+name: Build Kenang untuk Mac
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Siapkan proyek macOS
+        run: |
+          chmod +x tool/setup_macos.sh
+          ./tool/setup_macos.sh
+
+      - name: Build aplikasi
+        run: flutter build macos --release
+
+      - name: Tes logika
+        continue-on-error: true
+        run: flutter test
+
+      - name: Bungkus aplikasi
+        run: |
+          cd build/macos/Build/Products/Release
+          ditto -c -k --keepParent *.app "$GITHUB_WORKSPACE/Kenang-macos.zip"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Kenang-macos
+          path: Kenang-macos.zip
